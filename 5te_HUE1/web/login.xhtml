@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:spring="http://www.springframework.org/tags">
+
+<ui:composition template="template.xhtml">
+
+    <ui:define name="pageTitle">
+        Login
+    </ui:define>
+
+    <ui:define name="pageHeader">
+        <h1>Wilkommen</h1>
+    </ui:define>
+
+    <!-- Um das Menu auf der Loginseite nicht zu rendern -->
+    <ui:define name="menu">
+    </ui:define>
+
+    <ui:define name="pageBody">
+        <h:form id="login_form">
+
+            <p:messages id="messages"/>
+
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    Login
+                </f:facet>
+
+                <h:outputLabel for="email_i" value="Email: *"/>
+                <p:inputText id="email_i" value="#{loginBean.email}" label="Email" required="true"
+                             requiredMessage="Bitte geben Sie Ihre E-Mail-Adresse ein"
+                             validatorMessage="Muss eine Valide E-Mail-Adresse sein">
+                    <!-- Check if Email -->
+                    <f:validateRegex
+                            pattern="[a-z0-9!#$%'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])??"/>
+                </p:inputText>
+
+
+                <h:outputLabel for="passwort_i" value="Passwort: *"/>
+                <p:password id="passwort_i" value="#{loginBean.password}" required="true"
+                            requiredMessage="Bitte geben Sie ihr Passwort an" label="Passwort"
+                            validatorMessage="Bitte geben Sie ihr min. 6-Stelliges Passwort an">
+                    <f:validateLength minimum="6"/>
+                </p:password>
+
+
+                <f:facet name="footer">
+                    <p:commandButton value="Login" icon="ui-icon-power" update="messages"
+                                     actionListener="#{loginBean.login}"/>
+                    <p:button outcome="register" value="Neu Registrieren"/>
+
+                </f:facet>
+
+            </p:panelGrid>
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+
+</html>

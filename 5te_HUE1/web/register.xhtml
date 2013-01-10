@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:spring="http://www.springframework.org/tags">
+
+<ui:composition template="template.xhtml">
+
+    <ui:define name="pageTitle">
+        Registrierung
+    </ui:define>
+
+    <ui:define name="pageHeader">
+        <h1>Registrierungsseite</h1>
+    </ui:define>
+
+    <!-- Um das Menu auf der Registrierungsseite nicht zu rendern -->
+    <ui:define name="menu">
+    </ui:define>
+
+    <ui:define name="pageBody">
+        <h:form id="register_form">
+
+            <p:messages id="messages_r"/>
+
+            <p:panelGrid columns="2" style="border: none;">
+
+                <f:facet name="header">
+                    Registrierung
+                </f:facet>
+
+                <h:outputLabel for="email_r" value="Email: *"/>
+                <p:inputText id="email_r" value="#{registerBean.email_r}" label="Email" required="true"
+                             requiredMessage="Bitte geben Sie Ihre E-Mail-Adresse ein"
+                             validatorMessage="Muss eine Valide E-Mail-Adresse sein">
+                    <!-- Check if Email -->
+                    <f:validateRegex
+                            pattern="[a-z0-9!#$%'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])??"/>
+                </p:inputText>
+                <h:outputLabel for="passwort_r1" value="Bitte geben Sie Ihr Passwort 2 mal ein :"/>
+                <p:password id="passwort_r1" value="#{registerBean.password_r}" match="passwort_r2" required="true"
+                            requiredMessage="Bitte geben Sie ihr Passwort an" label="Passwort" feedback="true"
+                            inline="true"
+                            validatorMessage="Bitte geben Sie ihr min. 6-Stelliges Passwort an">
+                    <f:validateLength minimum="6"/>
+                </p:password>
+                <br/>
+                <p:password id="passwort_r2" value="#{registerBean.password_r}" required="true"
+                            requiredMessage="Bitte wiederholen Sie ihr Passwort" label="Passwort">
+                </p:password>
+
+                <h:outputLabel for="reisetypCh" value="Währen Sie Ihre Reisetypen :"/>
+                <p:selectCheckboxMenu id="reisetypCh" value="#{registerBean.selectedReisetyps}" label="Reisetypen"
+                                      filter="true" filterText="Filter" filterMatchMode="startsWith"
+                                      panelStyle="width:220px">
+                    <f:selectItems value="#{registerBean.availableReisetyps}"/>
+                    <!-- <f:converter converterId="reisetypConverter"/>        -->
+                </p:selectCheckboxMenu>
+
+                <h:outputLabel for="reisetypCh" value="Wollen Sie einen Newsletter ? "/>
+                <p:selectBooleanCheckbox value="#{registerBean.newsletter}"/>
+
+
+                <f:facet name="footer">
+                    <p:commandButton value="Registrieren" icon="ui-icon-power" update="messages_r"
+                                     actionListener="#{registerBean.register}"/>
+                    <p:button outcome="login" value="Zum Login"/>
+                </f:facet>
+
+
+            </p:panelGrid>
+
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="hibernate-4.1.1">
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/hibernate-core-4.1.1.Final.jar" />
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/hibernate-commons-annotations-4.0.1.Final.jar" />
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/antlr-2.7.7.jar" />
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/dom4j-1.6.1.jar" />
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/javassist-3.15.0-GA.jar" />
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/jboss-logging-3.1.0.GA.jar" />
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar" />
+  </library>
+  <library name="JPA 2.0-2.0">
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/javax.persistence.jar" />
+  </library>
+  <library name="jsf-2.0.1-FCS">
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/jsf-api.jar" />
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/jsf-impl.jar" />
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/jstl-1.1.0.jar" />
+  </library>
+  <library name="jsf/primefaces-3.4.1">
+    <archive path="/Users/danielkaiser/IdeaProjects/5te_HUE1/lib/primefaces-3.4.1.jar" />
+  </library>
+  <library name="postgresql-9.1-901.jdbc4">
+    <archive path="/Users/danielkaiser/Documents/workspace_2012_13/libraries/postgresql-9.1-901.jdbc4.jar" />
+  </library>
+</eclipse-userlibraries>
+

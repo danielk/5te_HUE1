@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+    <artifact type="exploded-war" name="5te_HUE1:war exploded">
+        <output-path>$PROJECT_DIR$/out/artifacts/5te_HUE1_war_exploded</output-path>
+        <root id="root">
+            <element id="javaee-facet-resources" facet="5te_HUE1/web/Web"/>
+            <element id="directory" name="WEB-INF">
+                <element id="directory" name="classes">
+                    <element id="module-output" name="5te_HUE1"/>
+                </element>
+                <element id="directory" name="lib">
+                    <element id="library" level="project" name="hibernate-4.1.1"/>
+                    <element id="library" level="project" name="JPA 2.0-2.0"/>
+                    <element id="library" level="project" name="jsf-2.0.1-FCS"/>
+                    <element id="library" level="project" name="jsf/primefaces-3.4.1"/>
+                    <element id="library" level="project" name="postgresql-9.1-901.jdbc4"/>
+                </element>
+            </element>
+        </root>
+    </artifact>
+</component>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:spring="http://www.springframework.org/tags">
+
+<ui:composition template="template.xhtml">
+
+    <ui:define name="pageTitle">
+        Reiseveranstaltungen
+    </ui:define>
+
+    <ui:define name="pageHeader">
+        <h1>Reiseveranstaltungenübersicht</h1>
+    </ui:define>
+
+    <ui:define name="pageBody">
+
+        <h:form id="reiseveranstaltungs_form">
+
+            <p:messages id="messages"/>
+
+            <p:dataTable id="dataTable" var="reiseveranstaltung"
+                         value="#{listBean.reiseveranstaltungList}"
+                         paginator="true" rows="10"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                         selection="#{listBean.selectedReiseveranstaltung}"
+                         rowKey="#{reiseveranstaltung.reiseveranstaltungId}"
+                         emptyMessage="Keine Reiseveranstaltungen vorhanden">
+
+
+                <f:facet name="header">
+                    Verfügbare Reiseveranstaltungen
+                </f:facet>
+
+                <p:column>
+                    <p:rowToggler/>
+                </p:column>
+
+                <p:column headerText="Reisetyp">
+                    <h:outputText value="#{reiseveranstaltung.reiseveranstaltungReisetyp.reisetypBezeichnung}"/>
+                </p:column>
+
+                <p:column headerText="Beginndatum">
+                    <h:outputText value="#{reiseveranstaltung.reiseveranstaltungBeginn}"/>
+                </p:column>
+
+                <p:column headerText="Enddatum">
+                    <h:outputText value="#{reiseveranstaltung.reiseveranstaltungEnde}"/>
+                </p:column>
+
+                <p:column headerText="Ziel">
+                    <h:outputText value="#{reiseveranstaltung.reiseveranstaltungZielort}"/>
+                </p:column>
+
+
+                <!-- ist ein bisschen langsam wegen db-->
+                <p:rowExpansion>
+                    <h:panelGrid id="display" columns="2" cellpadding="4" style="width:300px;"
+                                 styleClass=" ui-widget-content grid">
+
+                        <f:facet name="header">
+                            <h:outputText value="Reiseveranstaltung Nr. #{reiseveranstaltung.reiseveranstaltungId}"/>
+                        </f:facet>
+
+                        <h:outputText value="Preis:"/>
+                        <h:outputText value="#{reiseveranstaltung.reiseveranstaltungPreis}"/>
+
+                        <h:outputText value="Beschreibung:"/>
+                        <h:outputText value="#{reiseveranstaltung.reiseveranstaltungBeschreibung}"/>
+
+                        <h:outputText value="Hyperlink:"/>
+                        <h:outputText value="#{reiseveranstaltung.reiseveranstaltungHyperlink}"/>
+
+                    </h:panelGrid>
+
+                </p:rowExpansion>
+
+            </p:dataTable>
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
+
+</html>

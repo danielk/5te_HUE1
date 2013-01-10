@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:spring="http://www.springframework.org/tags">
+
+<ui:composition template="template.xhtml">
+
+    <ui:define name="pageTitle">
+        Persönliche Daten
+    </ui:define>
+
+    <ui:define name="pageHeader">
+        <h1>Wartung der Persönlichen Daten</h1>
+    </ui:define>
+
+    <ui:define name="pageBody">
+
+        <h:form id="maintain_form">
+
+            <p:messages id="messages"/>
+
+            <p:panelGrid columns="2" style="border: none;">
+
+                <h:outputLabel for="reisetypCh" value="Währen Sie Ihre Reisetypen :    "/>
+                <p:selectCheckboxMenu id="reisetypCh" value="#{maintainBean.selectedReisetyps}" label="Reisetypen"
+                                      filter="true" filterText="Filter" filterMatchMode="startsWith"
+                                      panelStyle="width:220px">
+                    <f:selectItems value="#{maintainBean.availableReisetyps}"/>
+                </p:selectCheckboxMenu>
+
+
+                <h:outputLabel for="reisetypCh" value="Wollen Sie einen Newsletter ? "/>
+                <p:selectBooleanCheckbox value="#{maintainBean.newsletter}"/>
+
+                <f:facet name="footer">
+                    <p:commandButton value="Speichern" update="messages" actionListener="#{maintainBean.save}"/>
+
+                </f:facet>
+
+            </p:panelGrid>
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
+
+</html>

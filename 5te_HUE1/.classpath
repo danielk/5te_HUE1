@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate-4.1.1"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JPA 2.0-2.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Tomcat 7.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jsf-2.0.1-FCS"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/primefaces-3.4.1"/>
+	<classpathentry kind="lib" path="/Users/danielkaiser/Downloads/mysql-connector-java-5.1.22/mysql-connector-java-5.1.22-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/postgresql-9.1-901.jdbc4"/>
+	<classpathentry kind="output" path="/out/production/5te_HUE1"/>
+</classpath>
